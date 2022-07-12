@@ -1,0 +1,78 @@
+/* white: #fff;
+blue: #1e90ff;
+green: #39d24a;
+yellow: #ffe244;
+pink: #ff36a3; */
+
+body {
+
+  /* I do like these colours */
+  /* background:
+    radial-gradient(circle at bottom, #fff -30%, transparent 70%),
+    linear-gradient(to right, #134a8e, #00b6f1 50%),
+    #fff; */
+
+  background:
+    radial-gradient(circle at bottom, #fff, transparent 80%),
+    linear-gradient(to top, dodgerblue 0%, transparent 70%),
+    linear-gradient(to bottom, transparent, rgba($white, 0.4) 70%),
+    #1e90ff;
+  animation: bg 30s infinite;
+}
+
+@keyframes bg {
+  0%, 100% { background-color: #1e90ff; }
+  25% { background-color: #39d24a; }
+  50% { background-color:  #ffe244; }
+  75% { background-color: #ff36a3; }
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  cursor: pointer;
+}
+
+.page {
+  min-width: 320px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.page__content {
+  padding: 0 50px;
+  margin: 0 auto;
+
+}
+
+.header {
+padding: 50px;
+margin: 0 auto;
+text-align: center;
+}
+
+.template {
+  padding: 10px 100px;
+}
+
+
+.card {
+border-radius: 5px;
+max-width: 200px;
+min-height: 300px;
+background-color: white;
+opacity: 0.5;
+box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+margin: 10px;
+
+}
+
+#hr {
+  width: 100px;
+
+}
+
+
