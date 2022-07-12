@@ -4,7 +4,7 @@ green: #39d24a;
 yellow: #ffe244;
 pink: #ff36a3; */
 
-body {
+/* body {
 
   /* I do like these colours */
   /* background:
@@ -26,6 +26,10 @@ body {
   50% { background-color:  #ffe244; }
   75% { background-color: #ff36a3; }
 
+}
+
+.body {
+  background-color: #b4ebbb;
 }
 
 * {
