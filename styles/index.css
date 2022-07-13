@@ -58,6 +58,10 @@ margin: 0 auto;
 text-align: center;
 }
 
+#hr {
+  width: 100px;
+}
+
 .template {
   padding: 10px 100px;
 }
@@ -74,9 +78,6 @@ margin: 10px;
 
 }
 
-#hr {
-  width: 100px;
 
-}
 
 
