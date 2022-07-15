@@ -19,7 +19,7 @@ function getActivity() {
 
   })
   .catch((err) => {
-    console.log('Ошибка. Запрос не выполнен');
+    console.log('Ошибка. Запрос не выполнен' + err);
   });
 }
 
