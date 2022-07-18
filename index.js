@@ -2,7 +2,7 @@
 
 const cardQuote = document.querySelector(".card__quote");
 const cardBtn = document.querySelector(".card__button");
-
+const loader = document.querySelector(".loader");
 
 
 function getActivity() {
@@ -13,12 +13,9 @@ function getActivity() {
     return res.json(); // возвращаем результат работы метода и идём в следующий then
   })
   .then((data) => { // если мы попали в этот then, data — это объект
-    console.log(data);
-    console.log(data.activity);
     showSpinner(true);
-    cardQuote.textContent = data.activity;
-    cardBtn.textContent = "What else?";
-
+    cardRender(data);
+   
   })
   .catch((err) => {
     console.log('Ошибка. Запрос не выполнен' + err);
@@ -30,6 +27,26 @@ function getActivity() {
 }
 
 cardBtn.addEventListener("click", getActivity);
+
+
+function cardRender(data) {
+  cardQuote.textContent = data.activity;
+  cardBtn.textContent = "What else?";
+  console.log(data);
+  console.log(data.activity);
+}
+
+
+function showSpinner(isLoading) {
+if (isLoading) {
+loader.classList.remove("loader_hidden");
+}
+else {
+loader.classList.add("loader_hidden");
+}
+
+}
+
 
 
 // function getWeather() {
@@ -53,16 +70,3 @@ cardBtn.addEventListener("click", getActivity);
 // }
 
 // getWeather();
-
-const loader = document.querySelector(".loader");
-
-function showSpinner(isLoading) {
-if (isLoading) {
-loader.classList.remove("loader_hidden");
-}
-else {
-  loader.classList.add("loader_hidden");
-}
-
-
-}
