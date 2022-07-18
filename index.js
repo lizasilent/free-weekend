@@ -15,14 +15,18 @@ function getActivity() {
   .then((data) => { // если мы попали в этот then, data — это объект
     console.log(data);
     console.log(data.activity);
-
+    showSpinner(true);
     cardQuote.textContent = data.activity;
     cardBtn.textContent = "What else?";
 
   })
   .catch((err) => {
     console.log('Ошибка. Запрос не выполнен' + err);
-  });
+  })
+  .finally(() => {
+    showSpinner(false);
+  })
+  ;
 }
 
 cardBtn.addEventListener("click", getActivity);
@@ -49,3 +53,16 @@ cardBtn.addEventListener("click", getActivity);
 // }
 
 // getWeather();
+
+const loader = document.querySelector(".loader");
+
+function showSpinner(isLoading) {
+if (isLoading) {
+loader.classList.remove("loader_hidden");
+}
+else {
+  loader.classList.add("loader_hidden");
+}
+
+
+}

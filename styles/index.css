@@ -23,7 +23,6 @@ a {
   margin: 0 auto;
   background-color: white;
   border-radius: 10px;
-  height: 90vh;
   position: relative;
   overflow: hidden;
 }
@@ -59,7 +58,7 @@ a {
 
 .header {
   position: relative;
-  padding: 50px;
+  padding: 30px 50px;
   margin: 0 auto;
   text-align: center;
 
@@ -79,9 +78,15 @@ a {
 
 .template__text{
 color: black;
-font-size: 50px;
+font-size: 46px;
 width: 500px;
 margin-right: 50px;
+line-height: 1;
+margin: 0;
+}
+
+.template__text span {
+  color: #ffe54c;
 }
 
 .card {
@@ -141,5 +146,54 @@ z-index: 2;
 @media (min-width: 768px) {
   .card__button {
     padding: 13px 50px 13px;
+  }
+}
+
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+}
+.loader {
+
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(255,229,76, 0.2);
+  border-right: 1.1em solid rgba(255,229,76, 0.2);
+  border-bottom: 1.1em solid rgba(255,229,76, 0.2);
+  border-left: 1.1em solid #ffe54c;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+
+.loader_hidden {
+  display: none;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
