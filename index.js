@@ -1,22 +1,27 @@
 const cardQuote = document.querySelector(".card__quote");
 const cardBtn = document.querySelector(".card__button");
 const loader = document.querySelector(".loader");
+const cardErr = document.querySelector(".card__err");
 
 function getActivity() {
   fetch("http://www.boredapi.com/api/activity/", {
     method: "GET",
   })
-    .then((res) => {
-      return res.json(); // возвращаем результат работы метода и идём в следующий then
-    })
+  .then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+
+    return Promise.reject(res.status);
+  })
     .then((data) => {
       // если мы попали в этот then, data — это объект
       showSpinner(true);
       cardRender(data);
     })
     .catch((err) => {
-      console.log("Ошибка. Запрос не выполнен" + err);
-      console.log(err);
+      cardErr.textContent = `Ошибка: ${err}`; 
+
     })
     .finally(() => {
       showSpinner(false);
@@ -33,8 +38,10 @@ function cardRender(data) {
 function showSpinner(isLoading) {
   if (isLoading) {
     loader.classList.remove("loader_hidden");
+    
   } else {
     loader.classList.add("loader_hidden");
+    cardErr.classList.remove("card__err_hidden");
   }
 }
 
