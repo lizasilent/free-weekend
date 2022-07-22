@@ -1,3 +1,6 @@
+import './styles/index.css';
+
+
 const cardQuote = document.querySelector(".card__quote");
 const cardBtn = document.querySelector(".card__button");
 const loader = document.querySelector(".loader");

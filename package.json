@@ -28,18 +28,18 @@
     "webpack-dev-server": "^4.9.3"
   },
   "scripts": {
-    "build": "rimraf dist && webpack",
+    "build": "webpack --mode production",
     "dev": "webpack-dev-server --open",
-    "start": "css-to-bem-file-structure styles/index.css"
+    "start": "css-to-bem-file-structure /index.css"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lizasilent/craftsmen.git"
+    "url": "git+https://github.com/lizasilent/free-weekend.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lizasilent/craftsmen/issues"
+    "url": "https://github.com/lizasilent/free-weekend/issues"
   },
-  "homepage": "https://github.com/lizasilent/craftsmen#readme"
+  "homepage": "https://github.com/lizasilent/free-weekend#readme"
 }
