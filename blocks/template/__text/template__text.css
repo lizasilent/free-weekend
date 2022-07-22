@@ -1,0 +1,15 @@
+.template__text {
+  color: black;
+  font-size: 38px;
+  width: 500px;
+  line-height: 1;
+  margin-right: 70px;
+}
+
+.template__text span {
+  color: #ffe54c;
+}
+
+.template__text p {
+  margin-top: 0;
+}

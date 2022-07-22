@@ -1,5 +1,5 @@
 {
-  "name": "craftsmen",
+  "name": "another-weekend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -30,7 +30,7 @@
   "scripts": {
     "build": "rimraf dist && webpack",
     "dev": "webpack-dev-server --open",
-    "start": "css-to-bem-file-structure src/index.css"
+    "start": "css-to-bem-file-structure styles/index.css"
   },
   "repository": {
     "type": "git",

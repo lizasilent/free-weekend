@@ -1,0 +1,11 @@
+@import url(./_1/bg-image_1.css);
+@import url(./_2/bg-image_2.css);
+@import url(./_3/bg-image_3.css);
+
+.bg-image {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 70%;
+  width: 100%;
+}

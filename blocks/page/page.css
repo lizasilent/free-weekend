@@ -1,0 +1,18 @@
+@import url(./__content/page__content.css);
+
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  cursor: pointer;
+}
+
+.page {
+  min-width: 320px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  padding: 50px;
+  position: relative;
+}

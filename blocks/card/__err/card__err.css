@@ -1,0 +1,6 @@
+.card__err {
+  color: red;
+  font-weight: 900;
+  margin-bottom: 30px;
+  font-size: 16px;
+}

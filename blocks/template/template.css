@@ -1,0 +1,8 @@
+@import url(./__text/template__text.css);
+
+.template {
+  padding: 10px 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}

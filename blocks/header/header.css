@@ -1,0 +1,8 @@
+@import url(./__heading/header__heading.css);
+
+.header {
+  position: relative;
+  padding: 30px 50px;
+  margin: 0 auto;
+  text-align: center;
+}

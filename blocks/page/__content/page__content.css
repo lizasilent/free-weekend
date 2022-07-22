@@ -1,0 +1,9 @@
+.page__content {
+  padding: 0 50px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
