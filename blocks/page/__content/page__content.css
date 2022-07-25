@@ -7,3 +7,15 @@
   overflow: hidden;
   min-height: 100vh;
 }
+
+@media screen and (max-width: 751px) {
+  .page__content{
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 432px) {
+  .page__content{
+    padding: 10px;
+  }
+}

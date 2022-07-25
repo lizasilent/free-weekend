@@ -5,3 +5,9 @@
   min-height: 100px;
   font-size: 20px;
 }
+
+@media screen and (max-width: 360px) {
+  .card__quote{
+    font-size: 16px;
+  }
+}

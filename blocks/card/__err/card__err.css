@@ -4,3 +4,9 @@
   margin-bottom: 30px;
   font-size: 16px;
 }
+
+@media screen and (max-width: 360px) {
+  .card__err{
+    font-size: 12px;
+  }
+}
