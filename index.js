@@ -21,6 +21,7 @@ function getActivity() {
       // если мы попали в этот then, data — это объект
       showSpinner(true);
       cardRender(data);
+
     })
     .catch((err) => {
       cardErr.textContent = `Ошибка: ${err}`; 
@@ -31,12 +32,23 @@ function getActivity() {
     });
 }
 
-cardBtn.addEventListener("click", getActivity);
+  cardBtn.addEventListener("click", getActivity);
+
 
 function cardRender(data) {
+
   cardQuote.textContent = data.activity;
   cardBtn.textContent = "What else?";
+
+  // grammar check failed, исправляем ошибку в тексте, подгруженного с апи
+
+  if (data.activity === "Practice coding in your favorite lanaguage") {
+     cardQuote.textContent = "Practice coding in your favorite language"
+      }
+
+ 
 }
+
 
 function showSpinner(isLoading) {
   if (isLoading) {
