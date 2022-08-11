@@ -1,12 +1,15 @@
 import './styles/index.css';
 
-
 const cardQuote = document.querySelector(".card__quote");
 const cardBtn = document.querySelector(".card__button");
 const loader = document.querySelector(".loader");
 const cardErr = document.querySelector(".card__err");
+const formSelect = document.querySelector(".form__select");
+const cardBtn2 = document.getElementById("button");
+const card1 = document.getElementById("card1");
+const card2 = document.getElementById("card2");
 
-function getActivity() {
+function getRandomActivity() {
   fetch("http://www.boredapi.com/api/activity/", {
     method: "GET",
   })
@@ -32,22 +35,53 @@ function getActivity() {
     });
 }
 
-  cardBtn.addEventListener("click", getActivity);
 
+function getRandomActivitybyType(type) {
+  fetch(`http://www.boredapi.com/api/activity?type=:${type}`, {
+    method: "GET",
+  })
+  .then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
 
-function cardRender(data) {
+    return Promise.reject(res.status);
+  })
+    .then((data) => {
+      // если мы попали в этот then, data — это объект
+      showSpinner(true);
+      cardRender(data);
 
-  cardQuote.textContent = data.activity;
-  cardBtn.textContent = "What else?";
+    })
+    .catch((err) => {
+      cardErr.textContent = `Ошибка: ${err}`; 
+      console.log(err);
 
-  // grammar check failed, исправляем ошибку в тексте, подгруженного с апи
-
-  if (data.activity === "Practice coding in your favorite lanaguage") {
-     cardQuote.textContent = "Practice coding in your favorite language"
-      }
-
- 
+    })
+    .finally(() => {
+      showSpinner(false);
+    });
 }
+
+  cardBtn.addEventListener("click", getRandomActivity);
+
+  function cardRender(data) {
+
+    cardQuote.textContent = data.activity;
+    cardBtn.textContent = "What else?";
+  
+    // grammar check failed, исправляем ошибку в тексте, подгруженного с апи
+  
+    if (data.activity === "Practice coding in your favorite lanaguage") {
+       cardQuote.textContent = "Practice coding in your favorite language"
+        }
+
+        
+  }
+  
+// const activityType = formSelect.value; 
+// cardBtn2.addEventListener("click", getRandomActivitybyType(activityType));
+
 
 
 function showSpinner(isLoading) {
