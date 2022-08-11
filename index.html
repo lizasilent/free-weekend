@@ -44,7 +44,7 @@
             </div> 
             <div class="card">
               <p class="card__quote">
-               Or choose options first.
+               Or choose options first:
               </p>
               <p class="card__err">
               </p>
@@ -53,15 +53,16 @@
                 <form class="form"
                 name="activityForm">
 
-                  <select name="numberOfPeople">
-                    <option value="anyNumber">Any</option>
+                  <select class="form__select" name="numberOfPeople">
+                    <option value="none" hidden="">Number of people</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
+                    <option value="more">More</option>
                   </select>
                   
-                  <select name="typeOfActivity">
-                    <option value="anyActivity">Any</option>
+                  <select class="form__select" name="typeOfActivity">
+                    <option value="none" hidden="">Type of activity</option>
                     <option value="education">Education</option>
                     <option value="recreational">Recreational</option>
                     <option value="social">Social</option>
@@ -76,7 +77,6 @@
                 </form>
                 <button class="card__button" role="button">Got it!</button>
                 
-
               
             </div>
           </div>

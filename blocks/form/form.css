@@ -1,3 +1,6 @@
+@import url(./__select/form__select.css);
+
+
 .form {
     display: flex;
     flex-direction: column;
