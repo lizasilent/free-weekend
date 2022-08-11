@@ -31,16 +31,57 @@
            
             <div class="card">
               <p class="card__quote">
-                Just press the button and find something to do
+                Just press the button and find something to do.
               </p>
               <p class="card__err">
               </p>
                 <div class="loader loader_hidden"></div>
 
-              <button class="card__button" role="button">Ok!</button>
+                <button class="card__button" role="button">Ok!</button>
+                
+
+              
+            </div> 
+            <div class="card">
+              <p class="card__quote">
+               Or choose options first.
+              </p>
+              <p class="card__err">
+              </p>
+                <div class="loader loader_hidden"></div>
+
+                <form class="form"
+                name="activityForm">
+
+                  <select name="numberOfPeople">
+                    <option value="anyNumber">Any</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                  
+                  <select name="typeOfActivity">
+                    <option value="anyActivity">Any</option>
+                    <option value="education">Education</option>
+                    <option value="recreational">Recreational</option>
+                    <option value="social">Social</option>
+                    <option value="charity">Charity</option>
+                    <option value="cooking">Cooking</option>
+                    <option value="relaxation">Relaxation</option>
+                    <option value="music">Music</option>
+                    <option value="busywork">Busywork</option>
+                    
+                  </select>
+                 
+                </form>
+                <button class="card__button" role="button">Got it!</button>
+                
+
+              
             </div>
           </div>
 
+          
 
         <footer class="footer">
           <div class="footer__logo"></div>
