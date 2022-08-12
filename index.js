@@ -1,13 +1,15 @@
 import './styles/index.css';
 
 const cardQuote = document.querySelector(".card__quote");
-const cardBtn = document.querySelector(".card__button");
+const card1 = document.getElementById("card1");
+const cardBtn = card1.querySelector(".card__button");
 const loader = document.querySelector(".loader");
 const cardErr = document.querySelector(".card__err");
 const formSelect = document.querySelector(".form__select");
-const cardBtn2 = document.getElementById("button");
-const card1 = document.getElementById("card1");
 const card2 = document.getElementById("card2");
+const cardBtn2 = card2.querySelector(".card__button");
+
+
 
 function getRandomActivity() {
   fetch("http://www.boredapi.com/api/activity/", {
@@ -64,6 +66,7 @@ function getRandomActivitybyType(type) {
 }
 
   cardBtn.addEventListener("click", getRandomActivity);
+  
 
   function cardRender(data) {
 
