@@ -40,34 +40,34 @@ function getRandomActivity() {
 }
 
 
-// function getRandomActivitybyType(type) {
-//   fetch(`http://www.boredapi.com/api/activity?type=:${type}`, {
-//     method: "GET",
-//   })
-//   .then((res) => {
-//     if (res.ok) {
-//       return res.json();
-//     }
+function getRandomActivitybyType(type) {
+  fetch(`http://www.boredapi.com/api/activity?type=:${type}`, {
+    method: "GET",
+  })
+  .then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
 
-//     return Promise.reject(res.status);
-//   })
-//     .then((data) => {
-//       // если мы попали в этот then, data — это объект
-//       showSpinner(true);
-//       card2Render(data);
+    return Promise.reject(res.status);
+  })
+    .then((data) => {
+      // если мы попали в этот then, data — это объект
+      showSpinner(true);
+      card2Render(data);
 
-//     })
-//     .catch((err) => {
-//       card2Err.textContent = `Ошибка: ${err}`; 
-//       console.log(err);
+    })
+    .catch((err) => {
+      card2Err.textContent = `Ошибка: ${err}`; 
+      console.log(err);
 
-//     })
-//     .finally(() => {
-//       showSpinner(false);
-//     });
-// }
+    })
+    .finally(() => {
+      showSpinner(false);
+    });
+}
 
-  cardBtn.addEventListener("click", getRandomActivity);
+  cardBtn.addEventListener("click", getRandomActivity("recreational"));
   
 
   function cardRender(data) {
@@ -93,19 +93,19 @@ function checkTheChoice() {
   card2Btn.addEventListnener("click", console.log("wtf"));
 
 
-  // function card2Render(data) {
-  //   console.log("Я второй и запустился");
-  //   card2Quote.textContent = data.activity;
-  //   card2Btn.textContent = "What else?";
+  function card2Render(data) {
+    console.log("Я второй и запустился");
+    card2Quote.textContent = data.activity;
+    card2Btn.textContent = "What else?";
   
-  //   // grammar check failed, исправляем ошибку в тексте, подгруженного с апи
+    // grammar check failed, исправляем ошибку в тексте, подгруженного с апи
   
-  //   if (data.activity === "Practice coding in your favorite lanaguage") {
-  //      cardQuote.textContent = "Practice coding in your favorite language"
-  //       }
+    if (data.activity === "Practice coding in your favorite lanaguage") {
+       cardQuote.textContent = "Practice coding in your favorite language"
+        }
 
         
-  // }
+  }
   
 
 
