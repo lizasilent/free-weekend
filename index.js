@@ -1,117 +1,94 @@
-import './styles/index.css';
+import "./styles/index.css";
 
-const cardQuote = document.querySelector(".card__quote");
 const card1 = document.getElementById("card1");
+const cardErr = card1.querySelector(".card__err");
 const cardBtn = card1.querySelector(".card__button");
-const loader = document.querySelector(".loader");
-const cardErr = document.querySelector(".card__err");
+
 const card2 = document.getElementById("card2");
-const card2Err = card2.querySelector(".card__err");
-const card2Quote = card2.querySelector(".card__quote");
 const card2Btn = card2.querySelector(".card__button");
+const card2Err = card1.querySelector(".card__err");
+
 const formSelect = document.querySelector(".form__select");
-
-
+const loader = document.querySelector(".loader");
 
 function getRandomActivity() {
   fetch("http://www.boredapi.com/api/activity/", {
     method: "GET",
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
 
-    return Promise.reject(res.status);
-  })
+      return Promise.reject(res.status);
+    })
     .then((data) => {
       // если мы попали в этот then, data — это объект
       showSpinner(true);
-      cardRender(data);
-
+      cardRender(data, card1);
     })
     .catch((err) => {
-      cardErr.textContent = `Ошибка: ${err}`; 
-
+      cardErr.textContent = `Ошибка: ${err}`;
     })
     .finally(() => {
       showSpinner(false);
     });
 }
 
-
 function getRandomActivitybyType() {
-
   let type = formSelect.value;
-
+  console.log(type);
 
   fetch(`http://www.boredapi.com/api/activity?type=${type}`, {
     method: "GET",
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
 
-    return Promise.reject(res.status);
-  })
+      return Promise.reject(res.status);
+    })
     .then((data) => {
       // если мы попали в этот then, data — это объект
       showSpinner(true);
-      card2Render(data);
-
+      cardRender(data, card2);
     })
     .catch((err) => {
-      card2Err.textContent = `Ошибка: ${err}`; 
+      card2Err.textContent = `Ошибка: ${err}`;
       console.log(err);
-
     })
     .finally(() => {
       showSpinner(false);
     });
 }
 
-  cardBtn.addEventListener("click", getRandomActivity);
-  
+cardBtn.addEventListener("click", getRandomActivity);
+card2Btn.addEventListener("click", getRandomActivitybyType);
 
-  function cardRender(data) {
-    cardQuote.textContent = data.activity;
-    cardBtn.textContent = "What else?";
-  
-    // grammar check failed, исправляем ошибку в тексте, подгруженного с апи
-  
-    if (data.activity === "Practice coding in your favorite lanaguage") {
-       cardQuote.textContent = "Practice coding in your favorite language"
-        }
+function cardRender(data, card) {
+  const cardQuote = card.querySelector(".card__quote");
+  const cardBtn = card.querySelector(".card__button");
 
-        
+  cardQuote.textContent = data.activity;
+  cardBtn.textContent = "What else?";
+
+  //
+
+  if (formSelect.value === "none") {
+    cardQuote.textContent = "Choose your activity";
   }
 
+  // grammar check failed, исправляем ошибку в тексте, подгруженного с апи
 
-  card2Btn.addEventListener("click", getRandomActivitybyType);
-
-
-  function card2Render(data) {
-    console.log("Я второй и запустился");
-    card2Quote.textContent = data.activity;
-    card2Btn.textContent = "What else?";
-  
-    // grammar check failed, исправляем ошибку в тексте, подгруженного с апи
-  
-    if (data.activity === "Practice coding in your favorite lanaguage") {
-       cardQuote.textContent = "Practice coding in your favorite language"
-        }
-
-        
+  if (data.activity === "Practice coding in your favorite lanaguage") {
+    cardQuote.textContent = "Practice coding in your favorite language";
   }
-  
-
-
+}
 
 function showSpinner(isLoading) {
   if (isLoading) {
     loader.classList.remove("loader_hidden");
-    
   } else {
     loader.classList.add("loader_hidden");
     cardErr.classList.remove("card__err_hidden");
