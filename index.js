@@ -43,10 +43,9 @@ function getRandomActivity() {
 function getRandomActivitybyType() {
 
   let type = formSelect.value;
- // http://www.boredapi.com/api/activity?type=:${type}
 
 
-  fetch("http://www.boredapi.com/api/activity?type={type}", {
+  fetch(`http://www.boredapi.com/api/activity?type=${type}`, {
     method: "GET",
   })
   .then((res) => {
@@ -60,7 +59,6 @@ function getRandomActivitybyType() {
       // если мы попали в этот then, data — это объект
       showSpinner(true);
       card2Render(data);
-      console.log(data);
 
     })
     .catch((err) => {
