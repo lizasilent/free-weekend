@@ -1,8 +1,8 @@
 import "./styles/index.css";
 
 const card1 = document.getElementById("card1");
-const cardErr = card1.querySelector(".card__err");
 const cardBtn = card1.querySelector(".card__button");
+const cardErr = card1.querySelector(".card__err");
 
 const card2 = document.getElementById("card2");
 const card2Btn = card2.querySelector(".card__button");
@@ -63,9 +63,6 @@ function getRandomActivitybyType() {
     });
 }
 
-cardBtn.addEventListener("click", getRandomActivity);
-card2Btn.addEventListener("click", getRandomActivitybyType);
-
 function cardRender(data, card) {
   const cardQuote = card.querySelector(".card__quote");
   const cardBtn = card.querySelector(".card__button");
@@ -73,10 +70,9 @@ function cardRender(data, card) {
   cardQuote.textContent = data.activity;
   cardBtn.textContent = "What else?";
 
-  //
 
   if (formSelect.value === "none") {
-    cardQuote.textContent = "Choose your activity";
+    cardQuote.textContent = "Choose your activity first";
   }
 
   // grammar check failed, исправляем ошибку в тексте, подгруженного с апи
@@ -94,6 +90,13 @@ function showSpinner(isLoading) {
     cardErr.classList.remove("card__err_hidden");
   }
 }
+
+
+cardBtn.addEventListener("click", getRandomActivity);
+card2Btn.addEventListener("click", getRandomActivitybyType); 
+
+
+
 
 // function getWeather() {
 //   fetch('https://api.weather.yandex.ru/v2/informers?lat=59.9386&lon=30.3141&lang=en_US',
