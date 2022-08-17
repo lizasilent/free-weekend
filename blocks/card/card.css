@@ -16,6 +16,7 @@
   z-index: 2;
   align-content: center;
   align-self: center;
+  color: black;
 }
 
 @media screen and (max-width: 592px) {
