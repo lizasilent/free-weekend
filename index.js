@@ -71,9 +71,9 @@ function cardRender(data, card) {
   cardBtn.textContent = "What else?";
 
 
-  if (formSelect.value === "none") {
-    cardQuote.textContent = "Choose your activity first";
-  }
+  // if (formSelect.value === "none") {
+  //   cardQuote.textContent = "Choose your activity first";
+  // }
 
   // grammar check failed, исправляем ошибку в тексте, подгруженного с апи
 
