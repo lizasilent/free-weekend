@@ -40,8 +40,13 @@ function getRandomActivity() {
 }
 
 
-function getRandomActivitybyType(type) {
-  fetch(`http://www.boredapi.com/api/activity?type=:${type}`, {
+function getRandomActivitybyType() {
+
+  let type = formSelect.value;
+ // http://www.boredapi.com/api/activity?type=:${type}
+
+
+  fetch("http://www.boredapi.com/api/activity?type={type}", {
     method: "GET",
   })
   .then((res) => {
@@ -55,6 +60,7 @@ function getRandomActivitybyType(type) {
       // если мы попали в этот then, data — это объект
       showSpinner(true);
       card2Render(data);
+      console.log(data);
 
     })
     .catch((err) => {
@@ -67,11 +73,10 @@ function getRandomActivitybyType(type) {
     });
 }
 
-  cardBtn.addEventListener("click", getRandomActivity("recreational"));
+  cardBtn.addEventListener("click", getRandomActivity);
   
 
   function cardRender(data) {
-    console.log("Я запустился");
     cardQuote.textContent = data.activity;
     cardBtn.textContent = "What else?";
   
@@ -84,13 +89,8 @@ function getRandomActivitybyType(type) {
         
   }
 
- 
-function checkTheChoice() {
-  console.log(formSelect.value);
-  console.log(typeof(formSelect.value));
-}
 
-  card2Btn.addEventListnener("click", console.log("wtf"));
+  card2Btn.addEventListener("click", getRandomActivitybyType);
 
 
   function card2Render(data) {
@@ -107,7 +107,6 @@ function checkTheChoice() {
         
   }
   
-
 
 
 
